@@ -1,6 +1,30 @@
 const travelPackages={bali:{title:'Bali Escape',region:'BALI · 4 HARI 3 MALAM',desc:'Pantai, budaya, Ubud dan sunset dalam satu perjalanan santai.',duration:'4 Hari 3 Malam',price:'Rp2.450.000',image:'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1500&q=85',days:['Hari 1 — Arrival & Seminyak','Hari 2 — Ubud & Tegallalang','Hari 3 — Uluwatu & Sunset','Hari 4 — Free time & Departure']},jogja:{title:'Jogja Stories',region:'YOGYAKARTA · 3 HARI 2 MALAM',desc:'Warisan budaya, kuliner dan sudut-sudut kota yang penuh cerita.',duration:'3 Hari 2 Malam',price:'Rp1.850.000',image:'https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=1500&q=85',days:['Hari 1 — Kota & Malioboro','Hari 2 — Borobudur & Kuliner','Hari 3 — Keraton & Departure']},lombok:{title:'Lombok Wild',region:'LOMBOK · 4 HARI 3 MALAM',desc:'Pantai, bukit dan petualangan untuk kamu yang ingin lebih dekat dengan alam.',duration:'4 Hari 3 Malam',price:'Rp2.650.000',image:'https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=1500&q=85',days:['Hari 1 — Arrival & Kuta','Hari 2 — Mandalika Coast','Hari 3 — Gili Adventure','Hari 4 — Free time & Departure']}};
 const params=new URLSearchParams(location.search),key=params.get('package');
 document.querySelectorAll('.book-btn').forEach(b=>b.addEventListener('click',()=>location.href='booking.html?package='+b.dataset.package));
+const searchTabs=document.querySelectorAll('.search-tabs button[data-search-type]');
+const searchConfig={
+ hotel:{destination:'Mau ke mana?',date:'Tanggal check-in',guests:'Tamu & kamar'},
+ flight:{destination:'Dari mana ke mana?',date:'Tanggal keberangkatan',guests:'Penumpang'},
+ experience:{destination:'Mau aktivitas di mana?',date:'Tanggal aktivitas',guests:'Jumlah tiket'},
+ bus:{destination:'Kota asal & tujuan',date:'Tanggal keberangkatan',guests:'Penumpang'},
+ train:{destination:'Stasiun asal & tujuan',date:'Tanggal keberangkatan',guests:'Penumpang'}
+};
+let activeSearchType='hotel';
+searchTabs.forEach(tab=>tab.addEventListener('click',()=>{
+  searchTabs.forEach(x=>x.classList.remove('active'));
+  tab.classList.add('active');
+  activeSearchType=tab.dataset.searchType;
+  const cfg=searchConfig[activeSearchType];
+  const labels=document.querySelectorAll('.search-grid label small');
+  if(labels[0]) labels[0].textContent='DESTINASI';
+  if(labels[1]) labels[1].textContent=cfg.date.toUpperCase();
+  if(labels[2]) labels[2].textContent=cfg.guests.toUpperCase();
+  const select=document.getElementById('searchPackage');
+  if(select){
+    select.previousElementSibling.textContent='DESTINASI';
+    select.options[0].textContent=cfg.destination;
+  }
+}));
 const searchBtn=document.getElementById('searchBtn');if(searchBtn)searchBtn.addEventListener('click',()=>{const p=document.getElementById('searchPackage').value;if(p)location.href='package-detail.html?package='+p;else location.href='packages.html'});
 const filter=document.getElementById('filterPackage');if(filter)filter.addEventListener('change',()=>{const v=filter.value.toLowerCase();document.querySelectorAll('.wide-card').forEach(c=>c.style.display=(!v||c.textContent.toLowerCase().includes(v))?'grid':'none')});
 const d=travelPackages[key];if(d&&document.getElementById('detailTitle')){document.title=d.title+' — WANDER';document.getElementById('detailTitle').textContent=d.title;document.getElementById('detailRegion').textContent=d.region;document.getElementById('detailDesc').textContent=d.desc;document.getElementById('detailDuration').textContent=d.duration;document.getElementById('detailPrice').textContent=d.price;document.getElementById('detailImg').style.backgroundImage='url("'+d.image+'")';document.getElementById('itinerary').innerHTML=d.days.map((x,i)=>'<div class="it-day"><b>0'+(i+1)+'</b>'+x+'</div>').join('');document.getElementById('bookLink').href='booking.html?package='+key}
