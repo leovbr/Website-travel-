@@ -2,21 +2,37 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WANDER — Indonesia Travel</title><link rel="stylesheet" href="style.css">
+<meta name="description" content="WANDER — booking perjalanan dan paket wisata Indonesia.">
+<title>WANDER — Travel Indonesia</title><link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="nav"><a class="brand" href="#">WANDER<span>.</span></a><nav><a href="#destinations">Destinasi</a><a href="#experiences">Pengalaman</a><a href="#about">Tentang</a></nav><a class="nav-cta" href="#booking">Pesan <span>↗</span></a></header>
+<header class="topbar"><div class="nav-inner"><a class="brand" href="index.html"><span>W</span> WANDER</a><nav><a href="index.html">Beranda</a><a href="packages.html">Paket Wisata</a><a href="check-booking.html">Cek Booking</a></nav><a class="nav-login" href="booking.html">Masuk / Daftar</a></div></header>
 <main>
-<section class="hero"><div class="hero-image"></div><div class="hero-overlay"></div><div class="hero-content"><p class="eyebrow">TRAVEL • DISCOVER • REMEMBER</p><h1>Jelajahi<br><em>Indonesia.</em></h1><p class="lead">Perjalanan pilihan ke tempat-tempat luar biasa di seluruh Indonesia, dirancang sesuai cara kamu ingin bepergian.</p><a class="primary" href="#destinations">Lihat perjalanan <span>→</span></a></div><div class="hero-meta"><span>INDONESIA ONLY</span><span>Scroll to explore ↓</span></div></section>
-<section class="intro" id="about"><p class="eyebrow">THE WANDER WAY</p><h2>Bukan sekadar liburan.<br><em>Cerita yang dibawa pulang.</em></h2><p class="intro-copy">Dari pagi yang tenang di pulau tropis sampai perjalanan menyusuri pegunungan, kami merancang pengalaman yang berkesan tanpa membuat proses booking terasa rumit.</p></section>
-<section class="destinations" id="destinations"><div class="section-head"><div><p class="eyebrow">DESTINASI INDONESIA</p><h2>Temukan <em>tempatmu.</em></h2></div><a href="#booking">Pesan perjalanan ↗</a></div>
-<div class="cards">
-<article class="card"><div class="card-img bali"></div><div><span>BALI • 4 HARI</span><h3>Bali Escape</h3><p>Pantai, budaya & slow mornings.</p><button class="book-btn" data-package="Bali Escape">Pesan paket →</button></div></article>
-<article class="card"><div class="card-img japan"></div><div><span>YOGYAKARTA • 3 HARI</span><h3>Jogja Stories</h3><p>Warisan budaya & kuliner lokal.</p><button class="book-btn" data-package="Jogja Stories">Pesan paket →</button></div></article>
-<article class="card"><div class="card-img swiss"></div><div><span>LOMBOK • 4 HARI</span><h3>Lombok Wild</h3><p>Pesisir, bukit & petualangan.</p><button class="book-btn" data-package="Lombok Wild">Pesan paket →</button></div></article>
+<section class="hero">
+<div class="hero-bg"></div><div class="hero-shade"></div>
+<div class="hero-inner"><div class="hero-copy"><span class="badge">🇮🇩 Jelajahi Indonesia</span><h1>Liburan lebih mudah,<br><strong>kenangan lebih banyak.</strong></h1><p>Temukan paket perjalanan pilihan dengan proses booking yang simpel, jelas, dan nyaman.</p></div>
+<div class="search-card"><div class="search-tabs"><button class="active">Paket Wisata</button><button>Hotel</button><button>Aktivitas</button></div><div class="search-grid">
+<label><small>DESTINASI</small><select id="searchPackage"><option value="">Mau ke mana?</option><option value="bali">Bali</option><option value="jogja">Yogyakarta</option><option value="lombok">Lombok</option></select></label>
+<label><small>TANGGAL</small><input id="searchDate" type="date"></label>
+<label><small>JUMLAH TAMU</small><input id="searchGuests" type="number" min="1" value="2"></label>
+<button class="search-btn" id="searchBtn">Cari</button></div></div></div>
+</section>
+<section class="quick"><div class="container quick-row"><div><b>🏷️ Harga transparan</b><span>Tidak ada biaya tersembunyi</span></div><div><b>✓ Booking mudah</b><span>Proses cepat dan praktis</span></div><div><b>🛡️ Perjalanan nyaman</b><span>Detail itinerary jelas</span></div><div><b>💬 Bantuan admin</b><span>Siap membantu konfirmasi</span></div></div></section>
+<section class="section container"><div class="section-title"><div><span class="section-kicker">DESTINASI POPULER</span><h2>Ke mana kamu <strong>ingin pergi?</strong></h2></div><a href="packages.html">Lihat semua →</a></div>
+<div class="destination-grid">
+<a class="destination bali" href="package-detail.html?package=bali"><div><small>BALI</small><h3>Bali Escape</h3><p>Mulai Rp2.450.000</p></div></a>
+<a class="destination jogja" href="package-detail.html?package=jogja"><div><small>YOGYAKARTA</small><h3>Jogja Stories</h3><p>Mulai Rp1.850.000</p></div></a>
+<a class="destination lombok" href="package-detail.html?package=lombok"><div><small>LOMBOK</small><h3>Lombok Wild</h3><p>Mulai Rp2.650.000</p></div></a>
 </div></section>
-<section class="experience" id="experiences"><div class="experience-photo"></div><div class="experience-copy"><p class="eyebrow">BUILT FOR YOU</p><h2>Travel<br><em>your way.</em></h2><p>Private escape, small-group adventure, atau itinerary yang dibuat khusus. Kamu bawa rasa ingin tahu, kami urus detailnya.</p><a class="text-link" href="#booking">Buat perjalanan →</a></div></section>
-<section class="booking" id="booking"><div><p class="eyebrow">BOOK YOUR JOURNEY</p><h2>Siap <em>berangkat?</em></h2><p class="booking-note">Saat ini WANDER melayani perjalanan dengan destinasi di dalam wilayah Indonesia.</p></div>
-<form id="bookingForm"><label>Nama lengkap<input id="name" required placeholder="Nama kamu"></label><label>Nomor WhatsApp<input id="phone" required inputmode="tel" placeholder="08xxxxxxxxxx"></label><label>Destinasi<select id="package"><option value="">Pilih paket</option><option>Bali Escape</option><option>Jogja Stories</option><option>Lombok Wild</option></select></label><label>Lokasi keberangkatan<select id="origin" required><option value="">Pilih provinsi</option><option>DKI Jakarta</option><option>Jawa Barat</option><option>Jawa Tengah</option><option>DI Yogyakarta</option><option>Jawa Timur</option><option>Bali</option><option>Nusa Tenggara Barat</option><option>Sumatera Utara</option><option>Sumatera Barat</option><option>Sumatera Selatan</option><option>Kepulauan Riau</option><option>Riau</option><option>Sulawesi Selatan</option><option>Sulawesi Utara</option><option>Kalimantan Timur</option><option>Kalimantan Selatan</option><option>Papua</option><option>Provinsi Indonesia lainnya</option></select></label><label>Jumlah orang<input id="guests" type="number" min="1" max="30" value="2" required></label><label>Tanggal berangkat<input id="date" type="date" required></label><button class="submit" type="submit">Kirim permintaan booking <span>→</span></button><p class="form-status" id="status"></p></form></section>
-</main><footer><div class="brand">WANDER<span>.</span></div><p>Travel across Indonesia.</p><small>© 2026 WANDER Travel Co.</small></footer><script src="script.js"></script>
+<section class="section container"><div class="section-title"><div><span class="section-kicker">PILIHAN UNTUKMU</span><h2>Paket wisata <strong>terpopuler</strong></h2></div><a href="packages.html">Lihat semua →</a></div>
+<div class="package-cards">
+<article class="package-card"><div class="package-photo bali-photo"><span>BEST SELLER</span></div><div class="package-body"><div class="location">📍 Bali · 4H3M</div><h3>Bali Escape</h3><p>Ubud, Seminyak, Uluwatu dan waktu bebas.</p><div class="package-bottom"><div>Mulai dari <strong>Rp2.450.000</strong><small>/orang</small></div><a href="booking.html?package=bali">Pilih</a></div></div></article>
+<article class="package-card"><div class="package-photo jogja-photo"><span>FAVORIT</span></div><div class="package-body"><div class="location">📍 Yogyakarta · 3H2M</div><h3>Jogja Stories</h3><p>Heritage, kuliner dan pengalaman lokal.</p><div class="package-bottom"><div>Mulai dari <strong>Rp1.850.000</strong><small>/orang</small></div><a href="booking.html?package=jogja">Pilih</a></div></div></article>
+<article class="package-card"><div class="package-photo lombok-photo"><span>ADVENTURE</span></div><div class="package-body"><div class="location">📍 Lombok · 4H3M</div><h3>Lombok Wild</h3><p>Pantai, bukit dan petualangan pulau.</p><div class="package-bottom"><div>Mulai dari <strong>Rp2.650.000</strong><small>/orang</small></div><a href="booking.html?package=lombok">Pilih</a></div></div></article>
+</div></section>
+<section class="promo"><div class="container promo-inner"><div><span class="section-kicker">WANDER INDONESIA</span><h2>Satu tempat untuk<br><strong>rencana perjalananmu.</strong></h2><p>Pilih destinasi, lihat detail itinerary, lalu booking. Sesederhana itu.</p><a class="white-btn" href="packages.html">Jelajahi paket</a></div><div class="promo-art">✈</div></div></section>
+<section class="section container faq"><div><span class="section-kicker">BANTUAN</span><h2>Pertanyaan <strong>umum</strong></h2></div><div class="faq-list"><details><summary>Bagaimana cara booking?</summary><p>Pilih paket, isi data perjalanan, lalu kamu akan mendapat kode booking untuk mengecek status.</p></details><details><summary>Apakah destinasi hanya di Indonesia?</summary><p>Ya. Untuk saat ini seluruh paket WANDER berfokus pada destinasi di Indonesia.</p></details><details><summary>Bagaimana konfirmasi booking?</summary><p>Setelah permintaan masuk, admin akan memproses detail perjalanan dan menghubungi nomor WhatsApp yang kamu cantumkan.</p></details></div></section>
+</main>
+<footer><div class="container footer-grid"><div><a class="brand footer-brand" href="index.html"><span>W</span> WANDER</a><p>Partner perjalanan untuk menjelajahi Indonesia.</p></div><div><b>WANDER</b><a href="packages.html">Paket Wisata</a><a href="booking.html">Booking</a><a href="check-booking.html">Cek Booking</a></div><div><b>BANTUAN</b><a href="index.html#faq">FAQ</a><a href="admin.html">Admin</a></div></div><div class="container footer-bottom">© 2026 WANDER Indonesia · Semua destinasi berada di Indonesia.</div></footer>
+<script src="script.js"></script>
 </body></html>
