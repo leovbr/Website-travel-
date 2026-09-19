@@ -10,7 +10,7 @@ const searchConfig={
  train:{destination:'Stasiun asal & tujuan',date:'Tanggal keberangkatan',guests:'Penumpang'}
 };
 let activeSearchType='hotel';
-searchTabs.forEach(tab=>tab.addEventListener('click',()=>{
+searchTabs.forEach(tab=>tab.addEventListener('click',(e)=>{e.preventDefault();
   searchTabs.forEach(x=>x.classList.remove('active'));
   tab.classList.add('active');
   activeSearchType=tab.dataset.searchType;
